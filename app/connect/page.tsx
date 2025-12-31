@@ -1,7 +1,7 @@
 "use client"
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, FormEvent } from 'react'
 import { Italianno } from "next/font/google";
 import { InstagramIcon, MailIcon } from 'lucide-react';
 import Confetti from 'react-confetti';
@@ -17,14 +17,14 @@ export default function Connect() {
     const [showConfetti, setShowConfetti] = useState(false);
     const [toast, setToast] = useState({ show: false, message: '' });
 
-    async function handleSubmit(event) {
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
         setIsSubmitting(true);
-        const form = event.target;
+        const form = event.currentTarget as HTMLFormElement;
         const formData = {
-            name: form.name.value,
-            email: form.email.value,
-            message: form.message.value,
+            name: (form.elements.namedItem('name') as HTMLInputElement).value,
+            email: (form.elements.namedItem('email') as HTMLInputElement).value,
+            message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
         };
 
         try {
@@ -46,7 +46,7 @@ export default function Connect() {
                 setToast({ show: true, message: 'Thankyou for your Message!' });
                 setTimeout(() => setToast({ show: false, message: '' }), 5000);
 
-                event.target.reset();
+                form.reset();
             }
 
             else {
