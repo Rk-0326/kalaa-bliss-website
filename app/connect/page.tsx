@@ -1,6 +1,6 @@
 "use client"
 
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary';
 import { useState, FormEvent } from 'react'
 import { Italianno } from "next/font/google";
 import { InstagramIcon, MailIcon } from 'lucide-react';
@@ -64,14 +64,6 @@ export default function Connect() {
         }
     }
 
-
-
-
-
-
-
-    const img = "https://scontent.cdninstagram.com/v/t51.82787-15/533074614_17915912832171886_8883678285643228575_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MzcwMDM2NTM3Mjk4MDIzNzIxMg%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0MzN4MTkwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=08dJvg98-5cQ7kNvwH1UYll&_nc_oc=AdmEuiebvK9n8vfzR7qamQuQ1MoKA0xxJGPyb7zl0vTD8VBW12hfBxgWz-h-ou4G31U&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=jA8Kl_lI42a9SSGPIdumwQ&oh=00_AfmBH6Vf3rDHAIoUWcmP0_McGC_qkn-fQBR9jngGFz7MZA&oe=6935062D"
-
     const emailAddress = "kalaa.bliss@gmail.com";
     // const subject = encodeURIComponent("A heartful message");
     const subject = "A heartful message";
@@ -102,9 +94,18 @@ export default function Connect() {
                 <div className="mx-16 inline-flex items-center justify-center gap-8 bg-white p-8 rounded-lg flex-col md:flex-row">
 
                     <div className="">
-                        <Image src={img} alt="Image" className="rounded-lg"
+                        <CldImage
+                            src="12_ml7zhq"
+                            alt="Contact Image"
+                            className="rounded-lg"
                             width={346}
-                            height={462} />
+                            height={462}
+                            crop="fill"
+                            gravity="auto"
+                            loading="lazy"
+                            quality="auto:good"
+                            format="auto"
+                        />
 
                         <a
                             href="https://www.instagram.com/kalaa_bliss/"
