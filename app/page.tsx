@@ -116,7 +116,7 @@ export default function Home() {
 
           {/* <AnimateOnScroll animation="fade-in-down"> */}
           <p className="w-11/12 md:w-10/12 italic
-          text-gray-600 text-lg md:text-xl mb-2 z-50 mx-auto">
+          text-gray-600 text-lg md:text-xl mb-2 z-30 mx-auto">
             Hey all cuties out there! I welcome you to my colorful world of art and animation.
           </p>
           {/* </AnimateOnScroll> */}
